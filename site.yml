@@ -4,6 +4,13 @@
   hosts: monitor-server
   remote_user: '{{ user_name }}'
   become: yes
+  vars_prompt:
+    - name: "githubuser"
+      prompt: "Enter your github username"
+      private: no
+    - name: "githubpassword"
+      prompt: "Enter your github password"
+      private: yes
 
   roles:
     - git-clone
