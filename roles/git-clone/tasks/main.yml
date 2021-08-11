@@ -1,0 +1,17 @@
+--- 
+- name: ANSIBLE - Shop Installation 
+  hosts: all 
+
+  vars_prompt: 
+    - name: "githubuser" 
+      prompt: "Enter your github username" 
+      private: no 
+    - name: "githubpassword" 
+      prompt: "Enter your github password" 
+      private: yes 
+
+###task.yml
+- name: Get updated files from git repository 
+  git:
+    repo=https://{{ githubuser | urlencode }}:{{ githubpassword | urlencode }}@github.com/test_hp_exporter.git
+    dest=/tmp
