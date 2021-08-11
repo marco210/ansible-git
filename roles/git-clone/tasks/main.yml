@@ -1,5 +1,5 @@
 --- 
-- name: ANSIBLE - Shop Installation 
+- name: ANSIBLE
   hosts: all 
 
   vars_prompt: 
